@@ -1,6 +1,6 @@
 let bigBox = document.querySelector("#overall-box");
 const colours = ["red", "blue", "violet", "pink", "yellow", "orange", "green"]
-makeBoxes(16);
+makeBoxes(20);
 
 function makeBoxes(num) {
     for (let x = 0; x < num; x++) {
@@ -11,8 +11,9 @@ function makeBoxes(num) {
             rectangleDiv.style["opacity"] = "0.0";
             rectangleDiv.style["border-width"] = "0.05rem";
             rectangleDiv.style["border-style"] = "solid";
-            rectangleDiv.style["width"] = `50px`;
-            rectangleDiv.style["height"] = "50px";
+            rectangleDiv.classList.add("squares");
+            rectangleDiv.style["width"] = `100%`
+            rectangleDiv.style["height"] = `${100/num}%`
 
             rectangleDiv.addEventListener("mouseenter", (event) => {
                 event.preventDefault();
@@ -28,6 +29,9 @@ function makeBoxes(num) {
             divContainer.appendChild(rectangleDiv);
 
         }
+        divContainer.classList.add("square-columns");
+        divContainer.style["width"] = `${100/num}%`
+        divContainer.style["height"] = `100%`
         bigBox.appendChild(divContainer);
     }
 
